@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +20,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', null, ['required' => false, 'constraints' =>[
                 new NotBlank([
-                    'message' => 'Please enter a email'
+                    'message' => 'Please enter an email'
                 ])
             ]])
             ->add('agreeTerms', CheckboxType::class, [
@@ -46,6 +47,14 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+            ])
+            ->add('roles',ChoiceType::class, [
+                'choices' => [
+                    'Admin' => 'ROLE_ADMIN',
+                    'Super Admin' => 'ROLE_SUPER_ADMIN',
+                ],
+                'expanded' => true,
+                'multiple' => true
             ])
         ;
     }

@@ -17,7 +17,7 @@ class DashboardController extends AbstractController
     public function index(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', "Role error", 'You must be moderator');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', "Role error", 'You must be a moderator');
 
         if(!$this->isGranted('ROLE_ADMIN'))
             return $this->redirectToRoute('dashboard_logout');
