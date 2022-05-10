@@ -45,9 +45,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $city;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $role;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private $phone;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -196,18 +193,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCity(string $city): self
     {
         $this->city = $city;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
 
         return $this;
     }

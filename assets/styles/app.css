@@ -1,3 +1,153 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+html,
 body {
-    background-color: lightgray;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+.grid {
+  display: grid;
+}
+
+.background-img {
+  /* background-image: url("../images/background_image.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+/* LOGIN PAGE */
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 650px;
+  width: 650px;
+  margin: 0 auto;
+  transform: translateY(25%);
+  border-radius: 5%;
+}
+.universal-logo {
+  text-align: center;
+  padding-top: 40px;
+}
+.login-title {
+  padding-left: 100px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #010101;
+}
+.email-input,
+.password-input,
+.submit-btn {
+  padding-left: 100px;
+  margin-bottom: 30px;
+}
+.email-input input,
+.password-input input {
+  width: 446px;
+  height: 38px;
+  border-style: none;
+  border-radius: 2px;
+}
+.password-input img {
+  position: absolute;
+  right: 120px;
+  bottom: 255px;
+}
+.password-input button {
+  position: absolute;
+  width: 20px;
+  height: 21px;
+  right: 120px;
+  bottom: 255px;
+  opacity: 0;
+  cursor: pointer;
+}
+.email-input input::placeholder,
+.password-input input::placeholder {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  padding-left: 7px;
+  color: #93949d;
+}
+.submit-btn button {
+  width: 450px;
+  height: 40px;
+  letter-spacing: 0.1px;
+  border-style: none;
+  text-align: center;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.submit-btn button a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* FORGOTTEN PASSWORD */
+
+.forgot-password {
+  padding-left: 100px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #010101;
+}
+.forgot-password p {
+  margin-bottom: 10px;
+}
+.forgot-password p:nth-child(2) {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4a4d51;
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+.new-password,
+.confirm-password,
+.submit-btn {
+  padding-left: 100px;
+  margin-bottom: 30px;
+}
+.new-password input,
+.confirm-password input {
+  width: 446px;
+  height: 38px;
+  border-style: none;
+  border-radius: 2px;
+}
+.new-password input::placeholder,
+.confirm-password input::placeholder {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  padding-left: 7px;
+  color: #93949d;
+}
+.new-password img {
+  position: absolute;
+  right: 115px;
+  bottom: 275px;
+}
+.new-password button {
+  position: absolute;
+  width: 20px;
+  height: 21px;
+  right: 115px;
+  bottom: 275px;
+  opacity: 0;
+  cursor: pointer;
+}
+.confirm-password img {
+  position: absolute;
+  right: 115px;
+  bottom: 205px;
 }
