@@ -1,14 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+{% block title %}Universal Academy{% endblock %}
 
 {% block body %}
-    <div class="example-wrapper">
-        <h1>Hello
-            {{ app.user.email }}! 🍔🍕</h1>
-        {% if is_granted('ROLE_ADMIN') %}
-            <button class="btn btn-danger mt-5 mb-5">Delete</button>
-        {% endif %}
-        <a href="{{ path('dashboard_logout') }}" class="btn btn-danger">Logout</a>
-    </div>
+    {% include "sidebar.html.twig" %}
+    <div class="content-wrapper">
+                <table>
+                    <tr class="search-bar">
+                        <td>
+                            <img src="images/search_icon.png" alt="search icon">
+                            <input type="search" name="search-input" class="search-input" placeholder="Search">
+                            <button class="add-user-btn">Add developer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="first-child">Avatar</th>
+                        <th class="second-child">First name</th>
+                        <th class="third-child">Last name</th>
+                        <th class="last-child-developers">Options</th>
+                    </tr>
+                    <tr>
+                        <td class="first-child"><img src="images/profile_picture_1.png" alt="User profile picture"></td>
+                        <td class="second-child">Loreta</td>
+                        <td class="third-child">Ipsum</td>
+                        <td class="options last-child-developers">
+                            <button class="edit-user-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
+                            <button><a href="developers_profile.html"><img src="images/view-icon.png" alt="View icon"></a></button>
+                            <button class="delete-user-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
+                        </td>
+                    </tr>
+                </table>
 {% endblock %}

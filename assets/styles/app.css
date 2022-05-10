@@ -93,61 +93,135 @@ body {
   color: #ffffff;
 }
 
-/* FORGOTTEN PASSWORD */
+/* SIDEBAR */
 
-.forgot-password {
-  padding-left: 100px;
-  font-size: 30px;
+.sidebar {
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  height: 100%;
+  width: 200px;
+  left: 0px;
+  top: 0px;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 0px 0px 20px 0px;
+  grid-template-rows: 165px 40px 40px 40px 40px;
+  position: fixed;
+  float: left;
+}
+.sidebar a {
+  text-decoration: none;
+  color: #ffffff;
   font-weight: 700;
-  color: #010101;
-}
-.forgot-password p {
-  margin-bottom: 10px;
-}
-.forgot-password p:nth-child(2) {
   font-size: 16px;
-  font-weight: 400;
-  color: #4a4d51;
-  margin-top: 0;
-  margin-bottom: 48px;
+  text-align: left;
+  padding-left: 60px;
 }
-.new-password,
-.confirm-password,
-.submit-btn {
-  padding-left: 100px;
-  margin-bottom: 30px;
+.sidebar a:hover {
+  border-left: 5px solid #ffffff;
 }
-.new-password input,
-.confirm-password input {
-  width: 446px;
-  height: 38px;
-  border-style: none;
-  border-radius: 2px;
+.sidebar img {
+  width: 100px;
+  justify-self: center;
+  margin-top: 40px;
 }
-.new-password input::placeholder,
-.confirm-password input::placeholder {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 24px;
-  padding-left: 7px;
-  color: #93949d;
+
+/* DASHBOARD */
+
+.content-wrapper {
+  margin-left: 200px;
+  position: relative;
+  display: block;
 }
-.new-password img {
+table {
   position: absolute;
-  right: 115px;
-  bottom: 275px;
+  border: 1px solid #c5c5c5;
+  border-radius: 20px;
+  border-collapse: collapse;
+  overflow-x: hidden;
+  display: block;
+  box-shadow: 0 0 10px 5px #c5c5c5;
+  margin: 30px;
+  margin-bottom: 50px;
 }
-.new-password button {
-  position: absolute;
-  width: 20px;
-  height: 21px;
-  right: 115px;
-  bottom: 275px;
-  opacity: 0;
+.search-bar {
+  display: flex;
+}
+tr {
+  width: 10px;
+}
+.options {
+  padding: 0;
+  text-align: center;
+}
+.options img {
+  width: 25px;
+  padding: 0;
+}
+.options button {
+  border: 0;
+  background-color: white;
   cursor: pointer;
+  padding: 0;
+  margin: 15px;
 }
-.confirm-password img {
-  position: absolute;
-  right: 115px;
-  bottom: 205px;
+.search-bar td {
+  flex: none;
+  width: 1538px;
+  border: 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.search-bar img {
+  vertical-align: text-top;
+  margin-right: 20px;
+}
+.search-bar img,
+.search-bar input {
+  vertical-align: -webkit-baseline-middle;
+}
+.search-bar input {
+  color: #bababa;
+  border: 0;
+  height: 50px;
+  width: 300px;
+}
+.search-bar input:focus {
+  outline: none;
+}
+.search-bar button {
+  width: 200px;
+  height: 40px;
+  letter-spacing: 0.1px;
+  border-style: none;
+  text-align: center;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 19.5px;
+  font-weight: 600;
+  cursor: pointer;
+  float: right;
+}
+tr th {
+  padding: 30px 70px 30px 60px;
+  text-align: left;
+}
+th,
+td {
+  border: 1px solid #c5c5c5;
+  padding: 10px 60px;
+  text-align: left;
+}
+.first-child {
+  border-left: 0;
+}
+.second-child {
+  width: 50%;
+}
+.third-child {
+  width: 50%;
+}
+.last-child {
+  border-right: 0;
+  width: 50%;
 }
