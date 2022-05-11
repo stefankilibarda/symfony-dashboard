@@ -48,7 +48,7 @@ class DashboardController extends AbstractController
     {
         $user = $userRepository->find($id);
 
-        return $this->render('', [
+        return $this->render('dashboard/my_profile.html.twig', [
             'user' => $user
         ]);
     }

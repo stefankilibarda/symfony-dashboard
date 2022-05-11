@@ -1,40 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/style.css">
-        <title>Universal akademija - Developers profile</title>
-    </head>
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ user.FirstName }} {{ user.LastName }}{% endblock %}
+
+{% block body %}
     <body>
         
         <div class="wrapper-developers-profile">
-            <aside class="sidebar grid">
-                <img src="images/universal_company_logo.png" alt="Universal Company Logo">
-                <a href="users.html" class="users">Users</a>
-                <a href="developers.html" class="Developers">Developers</a>
-                <a href="clients.html" class="Clients">Clients</a>
-                <a href="my_profile.html" class="My profile">My profile</a>
-            </aside>
-            <div class="content-wrapper-developers-profile grid">
+            {% include "sidebar.html.twig" %}
+            
+            <div class="content-wrapper-developers-profile grid container">
                 <div class="profile-info">
                     <div class="personal-info grid">
-                        <img src="images/edit-icon.png" alt="Edit icon">
+                        <button type="button" class="btn btn-info w-25 btn-sm"><a class="text-decoration-none text-white" href="#">Edit</a></button>
+
                         <img src="images/profile_picture_2.png" alt="Profile picture">
                         <span>
-                            Lorem
-                            Ipsum
+                            {{ user.FirstName }}
+                            {{ user.LastName }}
                         </span>
-                        <span><strong>First Name</strong> Lorem</span>
-                        <span><strong>Last Name</strong> Ipsum</span>
-                        <span><strong>Email:</strong> loremipsum@gmail.com</span>
-                        <span><strong>Role:</strong> Developer</span>
-                        <span><strong>Bank account:</strong> 5555 5555 5555 5555</span>
+                        <span><strong>First Name</strong> {{ user.FirstName }}</span>
+                        <span><strong>Last Name</strong> {{ user.LastName }}</span>
+                        <span><strong>Email:</strong> {{ user.Email }}</span>
+                        <span><strong>Role:</strong> {{ user.roles[0] != "ROLE_DEVELOPER" ? 'Admin' : "Developer" }}</span>
+                        <span><strong>Bank account:</strong> {{ user.Account }}</span>
                         <span><strong>Status:</strong> Active</span>
                         <button>Insert hours</button>
                         <span><strong>This month: 120:16:45</strong></span>
-                        <button id="log-out-btn">Log out</button>
                     </div>
                 </div>
 
@@ -52,178 +43,13 @@
                         <td>17.11.2021.</td>
                         <td>00:45:00</td>
                         <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Very very long lorem ipsum clients task in hand</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="options last-child">
-                            <button class="edit-user-btn developers-profile-btn-even"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button class="delete-user-btn developers-profile-btn-even"><img src="images/delete-icon.png" alt="Delete icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="ellipsis">
-                            <button><img src="icons/ellipsis.svg" alt="ellipsis icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="ellipsis">
-                            <button><img src="icons/ellipsis.svg" alt="ellipsis icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="ellipsis">
-                            <button><img src="icons/ellipsis.svg" alt="ellipsis icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td >Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="ellipsis">
-                            <button><img src="icons/ellipsis.svg" alt="ellipsis icon"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td>Lorem ipsum</td>
-                        <td>17.11.2021.</td>
-                        <td>00:45:00</td>
-                        <td class="ellipsis">
-                            <button><img src="icons/ellipsis.svg" alt="ellipsis icon"></button>
+
+                            
                         </td>
                     </tr>
                 </table>
 
-                <div class="edit-user-menu">
+                {# <div class="edit-user-menu">
                     <div class="edit-user-content">
                         <span>Delete user <img src="images/delete-icon.png" alt="delete icon"></span>
                         <p>Lorem Ipsum</p>
@@ -248,8 +74,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> #}
             </div>            
         </div>
     </body>
-</html>
+{% endblock %}

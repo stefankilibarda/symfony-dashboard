@@ -3,7 +3,8 @@
 {% block title %}Universal Academy{% endblock %}
 
 {% block body %}
-    {% include "sidebar.html.twig" %}
+    {% set user = 'user' %}
+    {% include "sidebar.html.twig" with { user:user } only %}
     <div class="content-wrapper">
                 <table>
                     <tr class="search-bar">
@@ -25,7 +26,7 @@
                         <td class="second-child">{{ user.getFirstName() }}</td>
                         <td class="third-child">{{ user.getLastName() }}</td>
                         <td>
-                            <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="#">View</a></button>
+                            <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="{{ path('dashboard_view', {'id': user.id}) }}">View</a></button>
                             <button type="button" class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ path('dashboard_delete', {'id': user.id}) }}">Delete</a></button>
                         </td>
                     </tr>
