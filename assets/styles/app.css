@@ -148,21 +148,6 @@ table {
 tr {
   width: 10px;
 }
-.options {
-  padding: 0;
-  text-align: center;
-}
-.options img {
-  width: 25px;
-  padding: 0;
-}
-.options button {
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-  padding: 0;
-  margin: 15px;
-}
 .search-bar td {
   flex: none;
   width: 1538px;
@@ -219,9 +204,5 @@ td {
   width: 50%;
 }
 .third-child {
-  width: 50%;
-}
-.last-child {
-  border-right: 0;
   width: 50%;
 }

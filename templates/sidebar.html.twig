@@ -6,5 +6,9 @@
         <a href="developers.html" class="Developers">Developers</a>
         <a href="clients.html" class="Clients">Clients</a>
         <a href="my_profile.html" class="My profile">My profile</a>
+
+        <form action="{{ path('dashboard_logout') }}" class="d-flex justify-content-center" method="POST">
+            <button type="submit" class="btn btn-danger">LOGOUT</button>
+        </form>
     </aside>
 {% endblock %}

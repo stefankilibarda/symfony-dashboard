@@ -20,14 +20,15 @@
                         <th class="last-child-developers">Options</th>
                     </tr>
                     <tr>
+                    {% for user in users %}                        
                         <td class="first-child"><img src="images/profile_picture_1.png" alt="User profile picture"></td>
-                        <td class="second-child">Loreta</td>
-                        <td class="third-child">Ipsum</td>
-                        <td class="options last-child-developers">
-                            <button class="edit-user-btn"><img src="images/edit-icon.png" alt="Edit icon"></button>
-                            <button><a href="developers_profile.html"><img src="images/view-icon.png" alt="View icon"></a></button>
-                            <button class="delete-user-btn"><img src="images/delete-icon.png" alt="Delete icon"></button>
+                        <td class="second-child">{{ user.getFirstName() }}</td>
+                        <td class="third-child">{{ user.getLastName() }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="#">View</a></button>
+                            <button type="button" class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ path('dashboard_delete', {'id': user.id}) }}">Delete</a></button>
                         </td>
                     </tr>
+                    {% endfor %}
                 </table>
 {% endblock %}
