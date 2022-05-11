@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\ClientRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,13 +36,13 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    // #[Route('/add-developer', name: 'add-developer')]
-    // public function add_developer(Request $request, UserRepository $userRepository)
-    // {
-    //     $user = new User();
+    #[Route('/add-developer', name: 'add_developer')]
+    public function add_developer(Request $request, UserRepository $userRepository)
+    {
+        $user = new User();
 
 
-    // }
+    }
 
     #[Route('/view/{id}', name: 'view')]
     public function view_developer($id, UserRepository $userRepository)
@@ -62,4 +63,6 @@ class DashboardController extends AbstractController
 
         return $this->redirectToRoute('dashboard_index');
     }
+
+    
 }

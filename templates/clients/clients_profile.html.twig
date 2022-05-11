@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ client.ClientName }}{% endblock %}
+
+{% block body %}
+    <body>
+        
+        <div class="wrapper-developers-profile">
+            {% include "sidebar.html.twig" %}
+            
+            <div class="content-wrapper-developers-profile grid container">
+                <div class="profile-info">
+                    <div class="personal-info grid">
+                        <button type="button" class="btn btn-info w-25 btn-sm"><a class="text-decoration-none text-white" href="#">Edit</a></button>
+
+                        <img src="images/profile_picture_2.png" alt="Profile picture">
+                        <span>
+                            {{ client.ClientName }}
+                        </span>
+                        <span><strong>First Name</strong> {{ client.ClientName }}</span>
+                        <span><strong>Manager:</strong> Manager</span>
+                        <span><strong>Manager factor:</strong> Manager</span>
+                        <span><strong>Payment:</strong> payment</span>
+                        <button>Insert hours</button>
+                        <span><strong>This month: 120:16:45</strong></span>
+                    </div>
+                </div>
+
+                <table class="developers-profile-table">
+                    <tr>
+                        <th>Client</th>
+                        <th >Task</th>
+                        <th>Month</th>
+                        <th>Time</th>
+                        <th>&nbsp</th>
+                    </tr>
+                    <tr>
+                        <td>Lorem ipsum</td>
+                        <td>Work on lorem ipsuming the pdf on the html channel</td>
+                        <td>17.11.2021.</td>
+                        <td>00:45:00</td>
+                        <td class="options last-child">
+
+                            
+                        </td>
+                    </tr>
+                </table>
+
+                {# <div class="edit-user-menu">
+                    <div class="edit-user-content">
+                        <span>Delete user <img src="images/delete-icon.png" alt="delete icon"></span>
+                        <p>Lorem Ipsum</p>
+                        <div class="edit-user-add-image">
+                            <img src="images/profile_picture_1.png" alt="add image button">
+                        </div>
+                        <form action="" class="edit-user-form">
+                            <input type="text" placeholder="Lorem">
+                            <input type="text" placeholder="Ipsum">
+                            <input type="email" placeholder="loremipsum@gmail.com">
+                            <input type="text" placeholder="069xxxxxxxxx">
+                            <input type="text" placeholder="Adolfa Singera 12A">
+                            <input type="text" placeholder="Subotica">
+                            <input type="text" placeholder="24000">
+                            <input type="text" placeholder="Serbia">
+                            <input type="password" placeholder="*********">
+                            <input type="text" placeholder="Developer">
+                            <input type="text" placeholder="Tekuci racun:">
+                            <div class="edit-user-btn grid">
+                                <button type="button" class="cancel-edit-user-btn">Cancel</button>
+                                <button type="button" class="submit-btn edit-user-btn">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> #}
+            </div>            
+        </div>
+    </body>
+{% endblock %}

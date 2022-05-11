@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+    {% include "sidebar.html.twig" %}
+    <div class="content-wrapper">
+                <table>
+                    <tr class="search-bar">
+                        <td>
+                            <img src="images/search_icon.png" alt="search icon">
+                            <input type="search" name="search-input" class="search-input" placeholder="Search">
+                            <button class="add-user-btn">Add client</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="first-child">Avatar</th>
+                        <th class="second-child">Name</th>
+                        <th class="third-child">Email</th>
+                        <th class="last-child-developers">Options</th>
+                    </tr>
+                    <tr>
+                    {% for client in clients %}                        
+                        <td class="first-child"><img src="images/profile_picture_1.png" alt="client profile picture"></td>
+                        <td class="second-child">{{ client.getClientName() }}</td>
+                        <td class="third-child">{{ client.getClientEmail() }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="{{ path('client_view', {'id': client.id}) }}">View</a></button>
+                            <button type="button" class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ path('client_delete', {'id': client.id}) }}">Delete</a></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+{% endblock %}
