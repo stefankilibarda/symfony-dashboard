@@ -15,9 +15,20 @@
         {% endblock %}
     </head>
     <body>
+        
+                {# {{ dump(app.request.attributes.get('_route')) }} #}
+        {% if app.request.attributes.get('_route') != 'dashboard_login' %}
+            {# <h1>test</h1> #}
+        {# {% include "login/index.html.twig" %} #}
         <div class="main-content">
         {% include "views/default/navbar.html.twig" %}
+
+        {% endif %}
+        {# {% if app.request.attributes.get('_route') == 'dashboard_index' %}
+            <h1>test</h1>
+        {% endif %} #}
             {% block body %}{% endblock %}
+
         </div>
     </body>
 </html>
