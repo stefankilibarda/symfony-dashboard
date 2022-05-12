@@ -27,7 +27,7 @@ class ClientRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Client $entity, bool $flush = false): void
+    public function add(Client $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {

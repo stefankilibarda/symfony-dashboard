@@ -196,7 +196,10 @@ tr {
   line-height: 19.5px;
   font-weight: 600;
   cursor: pointer;
-  float: right;
+}
+.search-bar button a {
+  text-decoration: none;
+  color: #ffffff;
 }
 tr th {
   padding: 30px 70px 30px 60px;

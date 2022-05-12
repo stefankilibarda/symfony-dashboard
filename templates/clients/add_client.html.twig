@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center">
+
+<h1 class="container mt-5 mb-5 d-flex justify-content-center">Add new client</h1>
+
+    <div class="form-group w-50 mt-3">
+        {{ form(form) }}
+    <button class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ path('client_clients') }}">Cancel</a></button>
+    </div>
+</div>
+
+{% endblock %}

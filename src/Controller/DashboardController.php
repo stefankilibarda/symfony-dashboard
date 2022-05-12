@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\DeveloperType;
 use App\Repository\ClientRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -41,6 +42,16 @@ class DashboardController extends AbstractController
     {
         $user = new User();
 
+        $form = $this->createForm(DeveloperType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $userRepository->add($user);
+            return $this->redirectToRoute('dashboard_index');
+        }
+        
+        return $this->render('dashboard/add_developer.html.twig', ['form' => $form->createView()]);
 
     }
 

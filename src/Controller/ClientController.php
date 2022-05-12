@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
+use App\Form\ClientType;
 use App\Repository\ClientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,6 +22,28 @@ class ClientController extends AbstractController
         return $this->render('clients/clients_index.html.twig', [
             'clients' => $clients
         ]);
+    }
+
+    #[Route('/add-client', name: 'add_client')]
+    public function add_developer(Request $request, ClientRepository $clientRepository)
+    {
+        $clients = $clientRepository->findAll();
+        $client = new Client();
+
+        $form = $this->createForm(ClientType::class, $client);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $client = $form->getData();
+            $clientRepository->add($client);
+            return $this->redirectToRoute('client_clients');
+        }
+        
+        return $this->render('clients/add_client.html.twig', [
+            'form' => $form->createView(),
+            'clients' => $clients
+        ]);
+
     }
 
     #[Route('/view_client/{id}', name: 'view')]
