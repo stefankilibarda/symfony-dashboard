@@ -8,6 +8,20 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   box-sizing: border-box;
 }
+
+body,
+html {
+  height: 100%;
+}
+
+.main-content {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr;
+}
+
 .grid {
   display: grid;
 }
@@ -104,8 +118,6 @@ body {
   box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.15);
   border-radius: 0px 0px 20px 0px;
   grid-template-rows: 165px 40px 40px 40px 40px;
-  position: fixed;
-  float: left;
 }
 .sidebar a {
   text-decoration: none;
@@ -127,7 +139,6 @@ body {
 /* DASHBOARD */
 
 .content-wrapper {
-  margin-left: 200px;
   position: relative;
   display: block;
 }
@@ -329,3 +340,5 @@ td {
   padding: 20px 0;
   border-radius: 20px;
 }
+
+/* MAIN CONTENT */
