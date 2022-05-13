@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('4df319b75e352ec2c7c3d2a02cffd9f9', name: 'dashboard_')]
+#[Route('universal_academy', name: 'dashboard_')]
 // #[IsGranted('IS_AUTHENTICATED_FULLY')]
 
 class DashboardController extends AbstractController
@@ -30,11 +30,18 @@ class DashboardController extends AbstractController
         //!is authenticated fully -> logout
 
         if(!$this->isGranted('ROLE_ADMIN'))
-            return $this->redirectToRoute('dashboard_logout');
+            return $this->redirectToRoute('dashboard_developer');
 
         return $this->render('dashboard/index.html.twig', [
             'users' => $users
         ]);
+    }
+
+    #[Route('/developer', name: 'developer')]
+    public function developers_profile(UserRepository $userRepository)
+    {
+
+        return $this->render('developer/developer_profile.html.twig');
     }
 
     #[Route('/add-developer', name: 'add_developer')]

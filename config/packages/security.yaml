@@ -35,11 +35,9 @@ security:
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-    - { path: ^/4df319b75e352ec2c7c3d2a02cffd9f9/login, roles: PUBLIC_ACCESS }
-    - {
-        path: ^/4df319b75e352ec2c7c3d2a02cffd9f9,
-        roles: IS_AUTHENTICATED_FULLY,
-      }
+    - { path: ^/universal_academy/login, roles: PUBLIC_ACCESS }
+    - { path: ^/universal_academy/admin, roles: ROLE_ADMIN }
+    - { path: ^/universal_academy, roles: IS_AUTHENTICATED_FULLY }
 
 when@test:
   security:
