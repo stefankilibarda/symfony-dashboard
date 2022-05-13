@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,9 +16,17 @@ class DeveloperType extends AbstractType
     {
         $builder
             ->add('email', TextType::class)
-            // ->add('roles')
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
+            ->add('roles', ChoiceType::class, [
+                'required' => true,
+                'multiple' => true,
+                'choices' => [
+                    'Admin' => 'ROLE_ADMIN',
+                    'Developer' => 'ROLE_DEVELOPER'
+                ],
+                'label' => false                
+            ])
             ->add('city', TextType::class)
             ->add('phone', TextType::class)
             ->add('street', TextType::class)
