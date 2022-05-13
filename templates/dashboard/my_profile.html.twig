@@ -9,7 +9,7 @@
             <div class="content-wrapper-developers-profile grid">
                 <div class="profile-info">
                     <div class="personal-info grid">
-                        <button type="button" class="btn btn-info w-25 btn-sm"><a class="text-decoration-none text-white" href="#">Edit</a></button>
+                        <button type="button" class="btn btn-info w-25 btn-sm"><a class="text-decoration-none text-white" href="{{ path('dashboard_edit_developer', {'id': user.id}) }}">Edit</a></button>
 
                         <img src="images/profile_picture_2.png" alt="Profile picture">
                         <span>
@@ -21,9 +21,7 @@
                         <span><strong>Email:</strong> {{ user.Email }}</span>
                         <span><strong>Role:</strong> {{ user.roles[0] != "ROLE_DEVELOPER" ? 'Admin' : "Developer" }}</span>
                         <span><strong>Bank account:</strong> {{ user.Account }}</span>
-                        <span><strong>Status:</strong> Active</span>
-                        <button>Insert hours</button>
-                        <span><strong>This month: 120:16:45</strong></span>
+                        <button>Show</button>
                     </div>
                 </div>
 

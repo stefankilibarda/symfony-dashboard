@@ -16,7 +16,7 @@ class ClientType extends AbstractType
             ->add('avatarPath')
             ->add('clientName')
             ->add('clientEmail')
-            ->add('submit', SubmitType::class, ['label' => 'Add client'])
+            ->add('submit', SubmitType::class, ['label' => 'Submit'])
         ;
     }
 

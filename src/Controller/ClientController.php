@@ -46,6 +46,26 @@ class ClientController extends AbstractController
 
     }
 
+    #[Route('/edit-client/{id}', name: 'edit_client')]
+    public function edit_client($id, Request $request, clientRepository $clientRepository)
+    {
+        $client = $clientRepository->find($id);
+
+        $form = $this->createForm(ClientType::class, $client);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $client = $form->getData();
+            $clientRepository->add($client);
+            return $this->redirectToRoute('client_clients');
+        }
+        
+        return $this->render('clients/edit_client.html.twig', [
+            'form' => $form->createView(),
+            'client' => $client
+    ]);
+    }
+
     #[Route('/view_client/{id}', name: 'view')]
     public function view_client($id, ClientRepository $clientRepository)
     {

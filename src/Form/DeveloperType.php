@@ -24,7 +24,7 @@ class DeveloperType extends AbstractType
             ->add('postalCode', TextType::class)
             ->add('country', TextType::class)
             ->add('account', TextType::class)
-            ->add('submit', SubmitType::class, ['label' => 'Add Developer'])
+            ->add('submit', SubmitType::class, ['label' => 'Submit'])
         ;
     }
 

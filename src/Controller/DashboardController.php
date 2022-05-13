@@ -55,6 +55,23 @@ class DashboardController extends AbstractController
 
     }
 
+    #[Route('/edit-developer/{id}', name: 'edit_developer')]
+    public function edit_developer($id, Request $request, UserRepository $userRepository)
+    {
+        $user = $userRepository->find($id);
+
+        $form = $this->createForm(DeveloperType::class, $user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $userRepository->add($user);
+            return $this->redirectToRoute('dashboard_index');
+        }
+        
+        return $this->render('dashboard/edit_developer.html.twig', ['form' => $form->createView()]);
+    }
+
     #[Route('/view/{id}', name: 'view')]
     public function view_developer($id, UserRepository $userRepository)
     {

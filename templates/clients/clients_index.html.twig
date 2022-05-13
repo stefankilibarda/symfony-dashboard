@@ -7,7 +7,7 @@
                 <table>
                     <tr class="search-bar">
                         <td>
-                            <img src="images/search_icon.png" alt="search icon">
+                            <img src="../images/search_icon.png" alt="search icon">
                             <input type="search" name="search-input" class="search-input" placeholder="Search">
                             <button class="add-user-btn"><a href="{{ path('client_add_client') }}">Add client</a></button>
                         </td>
@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                     {% for client in clients %}                        
-                        <td class="first-child"><img src="images/profile_picture_1.png" alt="client profile picture"></td>
+                        <td class="first-child"><img src="{{ client.getAvatarPath }}" alt="client profile picture"></td>
                         <td class="second-child">{{ client.getClientName() }}</td>
                         <td class="third-child">{{ client.getClientEmail() }}</td>
                         <td>
