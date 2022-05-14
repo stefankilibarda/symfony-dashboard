@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center">
+
+<h1 class="container mt-5 mb-5 d-flex justify-content-center">Add new task for: {{ user.FirstName }} {{ user.LastName }}</h1>
+
+    <div class="form-group w-50 mt-3">
+        {# {{ form(form) }} #}
+
+        <form action="{{ path('dashboard_add_task', {'id': user.id}) }}) }}" class="pt-5" method="POST">
+            <select class="form-select" aria-label="Default select example">
+            <option selected>Select client</option>
+            {% for client in clients %}     
+                <option value="{{ client.id }}">{{ client.clientName }}</option>
+            {% endfor %}
+            </select>
+            <div class="form-group mt-4">
+                <label for="exampleFormControlTextarea1">Task description</label>
+                <textarea name="task_description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" name="add_task_btn">Submit</button>
+        </form>
+    <button class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ path('dashboard_index') }}">Cancel</a></button>
+    </div>
+</div>
+
+{% endblock %}

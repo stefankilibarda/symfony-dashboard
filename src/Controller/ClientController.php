@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('4df319b75e352ec2c7c3d2a02cffd9f9', name: 'client_')]
+#[Route('universal_academy', name: 'client_')]
 class ClientController extends AbstractController
 {
-    #[Route('/clients', name: 'clients')]
+    #[Route('/admin/clients', name: 'clients')]
     public function show_clients(ClientRepository $clientRepository)
     {
         $clients = $clientRepository->findAll();
@@ -24,7 +24,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/add-client', name: 'add_client')]
+    #[Route('/admin/add-client', name: 'add_client')]
     public function add_developer(Request $request, ClientRepository $clientRepository)
     {
         $clients = $clientRepository->findAll();
@@ -46,7 +46,7 @@ class ClientController extends AbstractController
 
     }
 
-    #[Route('/edit-client/{id}', name: 'edit_client')]
+    #[Route('/admin/edit-client/{id}', name: 'edit_client')]
     public function edit_client($id, Request $request, clientRepository $clientRepository)
     {
         $client = $clientRepository->find($id);
@@ -66,7 +66,7 @@ class ClientController extends AbstractController
     ]);
     }
 
-    #[Route('/view_client/{id}', name: 'view')]
+    #[Route('/admin/view_client/{id}', name: 'view')]
     public function view_client($id, ClientRepository $clientRepository)
     {
         $client = $clientRepository->find($id);
@@ -76,7 +76,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/delete_client/{id}', name: 'delete')]
+    #[Route('/admin/delete_client/{id}', name: 'delete')]
     public function delete_client($id, ClientRepository $clientRepository)
     {
         $client = $clientRepository->find($id);

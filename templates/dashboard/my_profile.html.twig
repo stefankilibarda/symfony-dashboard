@@ -21,6 +21,8 @@
                         <span><strong>Email:</strong> {{ user.Email }}</span>
                         <span><strong>Role:</strong> {{ user.roles[0] != "ROLE_DEVELOPER" ? 'Admin' : "Developer" }}</span>
                         <span><strong>Bank account:</strong> {{ user.Account }}</span>
+                        <button type="button" class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ path('dashboard_add_task', {'id': user.id}) }}">Add Task</a></button>
+
                     </div>
                 </div>
 

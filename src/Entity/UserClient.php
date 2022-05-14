@@ -21,6 +21,9 @@ class UserClient
     #[ORM\JoinColumn(nullable: false)]
     private $client;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $taskDescription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -46,6 +49,18 @@ class UserClient
     public function setClient(?Client $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getTaskDescription(): ?string
+    {
+        return $this->taskDescription;
+    }
+
+    public function setTaskDescription(string $taskDescription): self
+    {
+        $this->taskDescription = $taskDescription;
 
         return $this;
     }

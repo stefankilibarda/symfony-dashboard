@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route('/admin', name: 'index')]
     // #[IsGranted('ROLE_ADMIN')]
     public function index(UserRepository $userRepository): Response
     {
@@ -62,7 +62,7 @@ class DashboardController extends AbstractController
 
     }
 
-    #[Route('/edit-developer/{id}', name: 'edit_developer')]
+    #[Route('/admin/edit-developer/{id}', name: 'edit_developer')]
     public function edit_developer($id, Request $request, UserRepository $userRepository)
     {
         $user = $userRepository->find($id);
@@ -79,7 +79,7 @@ class DashboardController extends AbstractController
         return $this->render('dashboard/edit_developer.html.twig', ['form' => $form->createView()]);
     }
 
-    #[Route('/view/{id}', name: 'view')]
+    #[Route('/admin/view/{id}', name: 'view')]
     public function view_developer($id, UserRepository $userRepository)
     {
         $user = $userRepository->find($id);
@@ -89,7 +89,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/admin/delete/{id}', name: 'delete')]
     public function delete_developer($id, UserRepository $userRepository)
     {
         $user = $userRepository->find($id);
