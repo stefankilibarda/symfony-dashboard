@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TaskController extends AbstractController
 {
     #[Route('/add_task/{id}', name: 'add_task')]
-    public function index($id, UserRepository $userRepository, ClientRepository $clientRepository, UserClientRepository $userClientRepository, Request $request): Response
+    public function add_task($id, UserRepository $userRepository, ClientRepository $clientRepository, UserClientRepository $userClientRepository, Request $request): Response
     {
         $user = $userRepository->find($id);
         $clients = $clientRepository->findAll();
@@ -28,16 +28,17 @@ class TaskController extends AbstractController
         
         
         // if ($form->isSubmitted() && $form->isValid()) {
-        //     dd($request);
         //     $task->setUser($user);
         //     $taskDescription->setTaskDescription();
         //     $userClientRepository->add($task);
         //     return $this->redirectToRoute('dashboard_index');
         // }
-
+        
         if(isset($_POST['add_task_btn'])){
-            $task->setUser($request->request->get('task_description'));
-            $task->setClient($request->request->get('task_description'));
+            $client = $clientRepository->find($request->request->get('select_client'));
+
+            $task->setUser($user);
+            $task->setClient($client);
             $task->setTaskDescription($request->request->get('task_description'));
             $userClientRepository->add($task);
             return $this->redirectToRoute('dashboard_index');

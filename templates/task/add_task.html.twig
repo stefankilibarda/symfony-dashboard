@@ -10,8 +10,8 @@
         {# {{ form(form) }} #}
 
         <form action="{{ path('dashboard_add_task', {'id': user.id}) }}) }}" class="pt-5" method="POST">
-            <select class="form-select" aria-label="Default select example">
-            <option selected>Select client</option>
+            <select name="select_client" class="form-select" aria-label="Default select example">
+            <option  selected>Select client</option>
             {% for client in clients %}     
                 <option value="{{ client.id }}">{{ client.clientName }}</option>
             {% endfor %}
