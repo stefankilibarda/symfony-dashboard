@@ -25,10 +25,8 @@ class DashboardController extends AbstractController
         // $this->denyAccessUnlessGranted('ROLE_ADMIN', "Role error", 'You must be a moderator');
 
         $users = $userRepository->findAll();
-        // dd($users);
-
-        //!is authenticated fully -> logout
-
+        
+        
         if(!$this->isGranted('ROLE_ADMIN'))
             return $this->redirectToRoute('dashboard_developer');
 
