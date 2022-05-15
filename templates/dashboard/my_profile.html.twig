@@ -31,17 +31,21 @@
                         <th>Client</th>
                         <th >Task</th>
                         <th>Month</th>
-                        <th>Time</th>
-                        <th>&nbsp</th>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="options last-child">
+                    {# {% for task in tasks %}                        
+                        <td>{{ task.getClient().getClientName() }}</td>
+                        <td>{{ task.getTaskDescription() }}</td>
+                        <td class="options last-child"></td>
+                    {% endfor %} #}
 
                             
+
+                            {% for task in tasks %}                        
+                        <td>{{ task.getClient().getClientName() }}</td>
+                        <td>{{ task.getTaskDescription() }}</td>
+                        <td class="options last-child"></td>
+                    {% endfor %}
                         </td>
                     </tr>
                 </table>

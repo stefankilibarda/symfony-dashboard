@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\DeveloperType;
 use App\Repository\ClientRepository;
+use App\Repository\UserClientRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -78,12 +79,15 @@ class DashboardController extends AbstractController
     }
 
     #[Route('/admin/view/{id}', name: 'view')]
-    public function view_developer($id, UserRepository $userRepository)
+    public function view_developer($id, UserRepository $userRepository, UserClientRepository $userClientRepository)
     {
         $user = $userRepository->find($id);
+        $tasks = $userClientRepository->findAll();
+        dd($tasks);
 
         return $this->render('dashboard/my_profile.html.twig', [
-            'user' => $user
+            'user' => $user,
+            'tasks' => $tasks
         ]);
     }
 
