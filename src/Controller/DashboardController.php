@@ -38,9 +38,17 @@ class DashboardController extends AbstractController
 
     #[Route('/developer', name: 'developer')]
     public function developers_profile(UserRepository $userRepository)
-    {
+    {   
 
-        return $this->render('developer/developer_profile.html.twig');
+        $user = $this->getUser();
+        // dd($user);
+
+        $tasks = $user->getUserClients();
+        
+
+        return $this->render('developer/developer_profile.html.twig', [
+            'tasks' => $tasks
+        ]);
     }
 
     #[Route('/add-developer', name: 'add_developer')]

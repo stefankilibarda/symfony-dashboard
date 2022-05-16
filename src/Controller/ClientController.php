@@ -70,9 +70,13 @@ class ClientController extends AbstractController
     public function view_client($id, ClientRepository $clientRepository)
     {
         $client = $clientRepository->find($id);
+        $tasks = $client->getUserClients();
+
 
         return $this->render('clients/clients_profile.html.twig', [
-            'client' => $client
+            'client' => $client,
+            'tasks' => $tasks
+
         ]);
     }
 

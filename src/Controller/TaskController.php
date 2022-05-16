@@ -51,4 +51,40 @@ class TaskController extends AbstractController
             // 'form' => $form->createView()
         ]);
     }
+    
+    #[Route('/edit-task/{id}', name: 'edit_task')]
+    public function edit_task($id,  UserRepository $userRepository, ClientRepository $clientRepository, UserClientRepository $userClientRepository, Request $request)
+    {
+        $task = $userClientRepository->find(['id' => $id]);
+        
+        if(isset($_POST['edit_task_btn'])){
+            $task = $userClientRepository->find($request->request->get('select_client'));
+            // dd ($task);
+
+            // $task->user->getFirstName($user);
+            // $task->setClient($client);
+            $task->setTaskDescription($request->request->get('task_description'));
+            // dd($task->setTaskDescription($request->request->get('task_description')));
+            $userClientRepository->add($task);
+            return $this->redirectToRoute('dashboard_index');
+        }
+
+        return $this->render('task/edit_task.html.twig', [
+            'tasks' => $userClientRepository->findAll(),
+            // 'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('delete-task/{id}', name: 'delete_task')]
+    public function delete_task($id, UserClientRepository $userClientRepository)
+    {
+        $task = $userClientRepository->find(['id' => $id]);
+        // dd($task);
+
+        $userClientRepository->remove($task);
+
+        return $this->redirectToRoute('dashboard_index');
+
+
+    }
 }

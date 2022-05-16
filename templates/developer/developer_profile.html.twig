@@ -30,13 +30,24 @@
                         <th>Client</th>
                         <th >Task</th>
                         <th>Month</th>
+                        <th>Options</th>
                     </tr>
+                            
+
+                    {% for task in tasks %}                        
                     <tr>
+                        <td>{{ task.getClient().getClientName() }}</td>
+                        <td>{{ task.getTaskDescription() }}</td>
                         <td></td>
-                        <td></td>
-                        <td class="options last-child"></td>
+                        <td class="options last-child">
+                            <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="{{ path('dashboard_edit_task', {'id': task.id}) }}">Edit</a></button>
+                            
+                            <button type="button" class="btn btn-danger"><a class="text-decoration-none text-white" href="{{ path('dashboard_delete_task', {'id': task.id}) }}">Delete</a></button>
+                        </td>
                     </tr>
+                    {% endfor %}
                 </table>
+
 
                 
             </div>            
