@@ -2,7 +2,7 @@
     {% set adminAuth = is_granted('ROLE_ADMIN') %}
     
     <aside class="sidebar grid">
-        <img src="../images/universal_company_logo.png" alt="Universal Company Logo">
+        <img src="{{ asset('images/universal_company_logo.png') }}" alt="Universal Company Logo">
         {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('dashboard_index') }}" class="Developers">Developers</a>
         <a href="{{ path('client_clients') }}" class="Clients">Clients</a>

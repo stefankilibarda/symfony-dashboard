@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                     {% for user in users %}                        
-                        <td class="first-child"><img src="images/profile_picture_1.png" alt="User profile picture"></td>
+                        <td class="first-child"><img src="{{ asset('images/profile_picture_2.png') }}" alt="User profile picture"></td>
                         <td class="second-child">{{ user.getFirstName() }}</td>
                         <td class="third-child">{{ user.getLastName() }}</td>
                         <td>
