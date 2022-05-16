@@ -43,7 +43,7 @@ class DashboardController extends AbstractController
         $user = $this->getUser();
         // dd($user);
 
-        $tasks = $user->getUserClients();
+        $tasks = $user->getUserClients(); //ne znam zasto podvlaci crveno, radi u browseru
         
 
         return $this->render('developer/developer_profile.html.twig', [
