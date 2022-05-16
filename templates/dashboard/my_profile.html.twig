@@ -32,7 +32,6 @@
                         <th >Task</th>
                         <th>Month</th>
                     </tr>
-                    <tr>
                     {# {% for task in tasks %}                        
                         <td>{{ task.getClient().getClientName() }}</td>
                         <td>{{ task.getTaskDescription() }}</td>
@@ -42,12 +41,13 @@
                             
 
                             {% for task in tasks %}                        
+                    <tr>
                         <td>{{ task.getClient().getClientName() }}</td>
                         <td>{{ task.getTaskDescription() }}</td>
                         <td class="options last-child"></td>
-                    {% endfor %}
                         </td>
                     </tr>
+                    {% endfor %}
                 </table>
 
                 

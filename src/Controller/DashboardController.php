@@ -79,14 +79,17 @@ class DashboardController extends AbstractController
     }
 
     #[Route('/admin/view/{id}', name: 'view')]
-    public function view_developer($id, UserRepository $userRepository, UserClientRepository $userClientRepository)
+    public function view_developer($id, UserRepository $userRepository, UserClientRepository $userClientRepository, ClientRepository $clientRepository)
     {
         $user = $userRepository->find($id);
-        $tasks = $userClientRepository->findAll();
-        dd($tasks);
+        $client_tasks = $clientRepository->findAll();
+        // $tasks = $userClientRepository->findBy(['user' => $id]);
+        $tasks = $user->getUserClients();
+        // dd($tasks);
 
         return $this->render('dashboard/my_profile.html.twig', [
             'user' => $user,
+            'client_tasks' => $client_tasks,
             'tasks' => $tasks
         ]);
     }
