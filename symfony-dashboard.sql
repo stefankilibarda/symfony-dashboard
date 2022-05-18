@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 02:32 PM
+-- Generation Time: May 18, 2022 at 09:54 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.2
 
@@ -39,10 +39,10 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id`, `avatar_path`, `client_name`, `client_email`) VALUES
-(1, '../images/it_convergence.png', 'IT Convergence', 'contact@itconvergence.com'),
-(2, '../images/as_marketing.png', 'AS Marketing', 'contact@asmarketing.com'),
-(3, 'no image', 'Infostud Grupa', 'contact@infostud.com'),
-(4, NULL, 'Alstek d.o.o.', 'contact@alstek.com');
+(1, '../../images/it_convergence.png', 'IT Convergence', 'contact@itconvergence.com'),
+(2, '../../images/as_marketing.png', 'AS Marketing', 'contact@asmarketing.com'),
+(3, '../../images/no_image.png', 'Infostud Grupa', 'contact@infostud.com'),
+(4, '../../images/no_image.png', 'Alstek d.o.o.', 'contact@alstek.com');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,8 @@ CREATE TABLE `doctrine_migration_versions` (
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 ('DoctrineMigrations\\Version20220509112027', '2022-05-09 13:20:43', 446),
-('DoctrineMigrations\\Version20220510074657', '2022-05-10 09:47:33', 453);
+('DoctrineMigrations\\Version20220510074657', '2022-05-10 09:47:33', 453),
+('DoctrineMigrations\\Version20220516124612', '2022-05-16 14:47:04', 1081);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
   `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar_path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `avatar_alt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -108,8 +109,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `roles`, `password`, `avatar_path`, `avatar_alt`, `first_name`, `last_name`, `city`, `phone`, `street`, `postal_code`, `country`, `account`) VALUES
-(1, 'stefan.kilibarda@email.com', '[\"ROLE_ADMIN\"]', '$2y$13$mxwlgJO2GlJqJqI/A4FGQu1oZerm5qCBilCm2MX6rdoWVMirLVgSG', 'no image', 'no image', 'Stefan', 'Kilibarda', 'Novi Sad', '+381693188999', 'Zeleznicka 15', '21000', 'Serbia', '123456789'),
-(3, 'milan.vidojevic@email.com', '[\"ROLE_DEVELOPER\"]', '$2y$13$Ee7NcFogdhBR/n9ZJRtx2uhgUym2g7krX0J2JNVinYbO.eXuD4kxi', NULL, NULL, 'Milan', 'Vidojevic', 'Novi Sad', '+38169532885', 'Bulevar Oslobodjenja 62', '21000', 'Serbia', '928-9235023-23');
+(1, 'stefan.kilibarda@email.com', '[\"ROLE_ADMIN\"]', '$2y$13$mxwlgJO2GlJqJqI/A4FGQu1oZerm5qCBilCm2MX6rdoWVMirLVgSG', '../../images/profile_picture_2.png', 'no image', 'Stefan', 'Kilibarda', 'Novi Sad', '+3816929385792', 'Maksima Gorkog 12', '21000', 'Serbia', '123456789'),
+(3, 'milan.vidojevic@email.com', '[\"ROLE_DEVELOPER\"]', '$2y$13$Ee7NcFogdhBR/n9ZJRtx2uhgUym2g7krX0J2JNVinYbO.eXuD4kxi', '../../images/profile_picture_3.png', NULL, 'Milan', 'Vidojevic', 'Novi Sad', '+38169532885', 'Bulevar Oslobodjenja 62', '21000', 'Serbia', '928-9235023-23');
 
 -- --------------------------------------------------------
 
