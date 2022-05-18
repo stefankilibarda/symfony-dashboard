@@ -27,7 +27,7 @@ npm run dev
 
 (to enable Encore)
 
-Be sure to put `universal_dashboard.sql` file into you Database system, and check for configuration in the `.env` file under the `doctrine/doctrine-bundle` section.
+Be sure to put `symfony-dashboard.sql` file into you Database system, and check for configuration in the `.env` file under the `doctrine/doctrine-bundle` section.
 
 ## Using the application
 
